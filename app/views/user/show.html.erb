@@ -1,0 +1,13 @@
+<div class="card text-center">
+  <div class="card-header">
+  <h5><%= params[:user].first_name %> <%= params[:user].last_name %></h5>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= params[:user].age %> ans</p>
+    <p class="card-text"><%= params[:user].description %></p>
+    <p class="card-text"><%= params[:user].email %></p>
+    <p class="card-text"><%= params[:user].city.name %></p>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>

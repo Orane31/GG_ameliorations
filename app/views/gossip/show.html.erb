@@ -1,0 +1,13 @@
+
+<div class="card text-center">
+<div class="card-header">
+<h5><%= params[:gossip].title %></h5>
+</div>
+<div class="card-body">
+  <p class="card-text"><%= params[:gossip].content %></p>
+  <%=link_to "Voir le profile de l'auteur", user_show_path(:id => params[:gossip].user.id), :class => "card-text" %>
+</div>
+<div class="card-footer text-muted">
+<%= params[:gossip].created_at%>
+</div>
+</div>
