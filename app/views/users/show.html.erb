@@ -5,8 +5,8 @@
   <div class="card-body">
     <p class="card-text"><%= params[:user].age %> ans</p>
     <p class="card-text"><%= params[:user].description %></p>
-    <p class="card-text"><%= params[:user].email %></p>
     <p class="card-text"><%= params[:user].city.name %></p>
+    <%= link_to "Visiter cette ville", cities_show_path(:id => params[:user].city.id) %>
   </div>
   <div class="card-footer text-muted">
   </div>

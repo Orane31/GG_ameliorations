@@ -5,9 +5,9 @@
 </div>
 <div class="card-body">
   <p class="card-text"><%= params[:gossip].content %></p>
-  <%=link_to "Voir le profile de l'auteur", user_show_path(:id => params[:gossip].user.id), :class => "card-text" %>
+  <%=link_to "Voir le profile de l'auteur", users_show_path(:id => params[:gossip].user.id), :class => "card-text" %>
 </div>
 <div class="card-footer text-muted">
-<%= params[:gossip].created_at%>
+<%= params[:gossip].created_at %>
 </div>
 </div>

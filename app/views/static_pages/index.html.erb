@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-outline-dark"><%= link_to "Ajouter un Gossip", new_gossip_path %></button>
+<button type="button" class="btn btn-outline-dark"><%= link_to "Ajouter un Gossip", gossips_new_path %></button>
 
 <div class="row">
 <% @gossips.each_with_index do |gossip| %>
@@ -7,7 +7,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= gossip.title %></h5>
         <p class="card-text"><%= gossip.user.first_name%> <%= gossip.user.last_name%></p>
-        <%=link_to "Voir le Gossip", gossip_show_path(:id => gossip.id), :class => "btn btn-primary" %>
+        <%=link_to "Voir le Gossip", gossips_show_path(:id => gossip.id), :class => "btn btn-primary" %>
       </div>
     </div>
   </div>
