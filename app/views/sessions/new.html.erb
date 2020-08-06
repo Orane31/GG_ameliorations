@@ -1,0 +1,39 @@
+
+
+
+<br>
+<br>
+
+<br>
+<br>
+
+
+<% if @problem %>
+  <div class="alert alert-danger" role="alert">
+    <p>Connexion impossible pour la (ou les) raison(s) suivante(s) :<p>
+    <ul>
+    <% @login.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  </div>
+  
+<% end %>
+
+
+<h5 class="text-center">Se connecter</h5>
+<br>
+<div class="container text-left">
+<form action="<%= sessions_path %>" method="POST" class="form-signin">
+<input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+<br>
+<div class="form-group">
+    <label for="email">Email please</label>
+    <input type="email" class="form-control" name='email' placeholder="your email here">
+    <br>
+    <label for="password">Password please</label>
+    <input type="password" class="form-control" name='password'>
+  </div>
+  <button type="submit" class="btn btn-dark">Login</button>
+</form>
+</div>

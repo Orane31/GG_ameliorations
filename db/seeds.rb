@@ -15,6 +15,7 @@ Tagossip.destroy_all
 Gossip.destroy_all
 Tag.destroy_all
 PrivateMessage.destroy_all
+Comment.destroy_all
 
 
 10.times do
@@ -30,11 +31,12 @@ puts "city ok"
         description: Faker::Lorem.paragraph(sentence_count: 2),
         email: Faker::Internet.email,
         age: rand(18..70),
-        city_id: City.all.sample.id
+        city_id: City.all.sample.id,
+        password: Faker::Lorem.word
         )
 end
 
-puts "users created"
+puts "10 users created"
 
 10.times do 
     tag = Tag.create!(title: Faker::Lorem.word)
@@ -67,3 +69,12 @@ puts "gossips attributed"
 end
 
 puts "5 new messages"
+
+15.times do
+    comment = Comment.create!(
+        content: Faker::Quote.yoda,
+        gossip_id: Gossip.all.sample.id,
+        user_id: User.all.sample.id
+    )
+
+end

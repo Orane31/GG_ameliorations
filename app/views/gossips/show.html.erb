@@ -1,13 +1,36 @@
 
 <div class="card text-center">
-<div class="card-header">
-<h5><%= params[:gossip].title %></h5>
+    <div class="card-header">
+        <h5><%= @gossip.title %></h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text"><%= @gossip.content %></p>
+        <p class="card-text">Auteur : <%=link_to "#{@gossip.user.first_name}", user_path(:id => @gossip.user.id), :class => "card-text" %></p>
+        <p class="card-text">Ville :  <%=link_to "#{@gossip.user.city.name}", city_path(:id => @gossip.user.city.id), :class => "card-text" %></p>
+    </div>
+        <div class="card-footer text-muted">
+            <%= @gossip.created_at %>
+        </div>
+    </div>
 </div>
-<div class="card-body">
-  <p class="card-text"><%= params[:gossip].content %></p>
-  <%=link_to "Voir le profile de l'auteur", users_show_path(:id => params[:gossip].user.id), :class => "card-text" %>
+<div class="container text-center">
+    <a href="<%= edit_gossip_path(:id => @gossip.id) %>" class="btn btn-outline-dark">Mettre à jour</a>
+    <a href="<%= gossip_path(:id => @gossip.id) %>" class="btn btn-outline-dark" data-confirm="T'es sûr?" data-method="DELETE">Supprimer ce gossip</a>
+    <%= link_to "Ajouter un commentaire", new_gossip_comment_path(:gossip_id => @gossip.id), class: 'btn btn-outline-dark' %>
 </div>
-<div class="card-footer text-muted">
-<%= params[:gossip].created_at %>
+
+
+
+
+<div class="container text-center">
+    <% @comments.each do |comment| %>
+        <% if comment.gossip_id == @gossip.id %>
+        <p><%= comment.content %>
+        <%= link_to "Lire ce commentaire", gossip_comment_path(:id => comment.id, :gossip_id => @gossip.id), class: 'btn btn-outline-dark' %>
+
+        <% end %>
+    <% end %>
 </div>
-</div>
+
+
+

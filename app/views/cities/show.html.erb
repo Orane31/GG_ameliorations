@@ -14,7 +14,7 @@
         <% @gossips.each do |gossip| %>
             <div class="col-sm-6">
                 <h3><%= gossip.title %></h3>
-                <p><%= link_to "Lire les détails", gossips_show_path(:id => gossip.id), :class =>"btn btn-primary" %></p>
+                <p><%= link_to "Lire les détails", gossip_path(:id => gossip.id), :class =>"btn btn-primary" %></p>
             </div>
         <% end %>
         </div>

@@ -1,0 +1,72 @@
+
+<br>
+<br>
+<br>
+<br>
+
+<% if @problem %>
+  <div class="alert alert-danger" role="alert">
+    <p>Nous n avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :<p>
+    <ul>
+    <% @new_person.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  </div>
+  
+<% end %>
+
+
+<div class="mainContent">
+  <div class="grid">
+    <h1 class="largeHeader">Sign up</h1>
+    <p class="centeredDescription col_4">Already signed up? You can <%= link_to "log in here", new_session_path %></p>
+    <div class="centered_col">
+    <%= form_for @new_person do |f| %>
+    
+    <div class="form-group">
+        <%= f.label :first_name %><br />  
+        <%= f.text_field :first_name %>  
+    </div>
+
+    <div class="form-group">
+        <%= f.label :last_name %><br />  
+        <%= f.text_field :last_name %>  
+    </div>
+
+    <div class="form-group">
+    <%= f.label :age %><br />  
+    <%= f.text_field :age %>  
+    </div>
+
+    <div class="form-group">
+        <%= f.label :description %><br />  
+        <%= f.text_field :description %>
+    </div>
+    <div class="form-group">
+        <%= f.label :email %><br />  
+        <%= f.text_field :email %>  
+    </div>
+
+    <div class="form-group">
+        <%= f.label :password %><br />  
+        <%= f.password_field :password %>  
+    </div>
+
+    <div class="form-group">
+        <%= f.label :password_confirmation %>  
+        <%= f.password_field :password_confirmation %>  
+    </div>
+
+    <button type="submit" class="btn btn-danger align-center">Valider</button>
+  <% end %> 
+
+    </div><!-- end centered_col contact form -->
+
+    <div class="centered_col">
+    </div>
+
+  </div>
+</div>
+
+

@@ -1,12 +1,13 @@
 <div class="card text-center">
   <div class="card-header">
-  <h5><%= params[:user].first_name %> <%= params[:user].last_name %></h5>
+  <h5><%= @user.first_name %> <%= @user.last_name %></h5>
   </div>
   <div class="card-body">
-    <p class="card-text"><%= params[:user].age %> ans</p>
-    <p class="card-text"><%= params[:user].description %></p>
-    <p class="card-text"><%= params[:user].city.name %></p>
-    <%= link_to "Visiter cette ville", cities_show_path(:id => params[:user].city.id) %>
+    <p class="card-text"><%= @user.description %></p>
+    <p class="card-text"><%= @user.email %></p>
+    <p class="card-text"><%= @user.age %> ans</p>
+
+    <p class="card-text">Originaire de : <%= link_to "#{@user.city.name}", city_path(:id => @user.city.id) %></p>
   </div>
   <div class="card-footer text-muted">
   </div>
