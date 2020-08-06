@@ -27,5 +27,6 @@ class SessionsController < ApplicationController
   def destroy
     session.delete(:user_id)
     flash[:success] = "Bye bye"
+    redirect_to :controller => 'static_pages', :action => 'index'
   end
 end
