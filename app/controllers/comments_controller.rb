@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     end
 
     def show
-        @comment = Comment.find(params[:id])
+
     end
 
     def new
@@ -13,12 +13,12 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @comment = Comment.new(content: params[:content], user: User.find(53), gossip: Gossip.find(params[:gossip_id]))
+        @comment = Comment.new(content: params[:content], user: current_user.id, gossip: Gossip.find(params[:gossip_id]))
 
         if @comment.save
             redirect_to gossip_path(id: Gossip.find(params[:gossip_id])
         else 
-            render new_gossip_comment_path
+            render gossip_path(id: Gossip.find(params[:gossip_id])
         end
 
 
