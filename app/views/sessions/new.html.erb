@@ -8,25 +8,12 @@
 <br>
 
 
-<% if @problem %>
-  <div class="alert alert-danger" role="alert">
-    <p>Connexion impossible pour la (ou les) raison(s) suivante(s) :<p>
-    <ul>
-    <% @login.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-  </div>
-  
-<% end %>
 
-<% if @registered %>
-  <div class="alert alert-success" role="alert">
-    <p>Bienvenue ! Tu peux maintenant te connecter avec ton email et ton mot de passe !<p>
-  </div>
-  
-<% end %>
 
+<p class="centeredDescription col_4">Not a member yet ? You can <%= link_to "sign up here", new_user_path %></p>
+<br>
+<br>
+<br>
 
 <h5 class="text-center">Se connecter</h5>
 <br>

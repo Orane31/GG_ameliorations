@@ -1,4 +1,6 @@
 class GossipsController < ApplicationController
+  before_action :authenticate_user, only: [:show, :new]
+
   def index
     @gossips = Gossip.all
     # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
@@ -22,7 +24,7 @@ class GossipsController < ApplicationController
 
     if @gossip.save
 #      @message = "The super potin was succesfully saved !"
-      flash[:success] = "Le livre a été mis à jour."
+      flash[:success] = "Your Gossip has been posted eheheh."
       redirect_to index_path
     else
       @problem = true 
@@ -50,6 +52,15 @@ class GossipsController < ApplicationController
     @gossip.destroy
     redirect_to index_path
 
+  end
+
+  private
+
+  def authenticate_user
+    unless logged_in? == true
+      flash[:danger] = "You have to log in first !"
+      redirect_to new_session_path
+    end
   end
 
 end

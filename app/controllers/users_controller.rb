@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if @new_person.save
       p "user created"
 
-      flash[:success] = "the account was succesfully created"
+      flash[:success] = "Welcome #{@new_person.first_name} ! Now you can check all the hot gossips of THP"
       log_in(@new_person)
       redirect_to index_path
 

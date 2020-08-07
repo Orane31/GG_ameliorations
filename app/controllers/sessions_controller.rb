@@ -14,11 +14,11 @@ class SessionsController < ApplicationController
 
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        flash[:success] = " Bonjour #{user.first_name}, tu es bien connecté :slight_smile: "
+        flash[:success] = " Welcome #{user.first_name} ! Here are all the hot gossips you may have missed !"
         redirect_to :controller => 'static_pages', :action => 'index'
       else
         @problem = true
-        flash.now[:danger] = 'Erreur de mot de passe ou de mail'
+        flash.now[:danger] = 'Error password or mail'
         render 'new'
       end
   end
