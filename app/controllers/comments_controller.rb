@@ -13,9 +13,15 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @comment = Comment.new(content: params[:content], user: current_user.id, gossip: Gossip.find(params[:gossip_id]))
+        @comment = Comment.new(content: params[:content], user: User.find(current_user.id), gossip: Gossip.find(params[:gossip_id]))
 
-            redirect_to gossip_path(id: Gossip.find(params[:gossip_id])
+        if @comment.save
+            flash[:success] = "Thanks for your comment #{@comment.user.first_name} !"
+            redirect_to :controller => 'gossips', :action => 'show', id: Gossip.find(params[:gossip_id])
+        else
+                flash[:danger] = "Your comment was not validated... Sorry "
+                render :new
+        end
     end
 
     def edit
