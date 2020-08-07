@@ -16,12 +16,12 @@ class CommentsController < ApplicationController
         @comment = Comment.new(content: params[:content], user: current_user.id, gossip: Gossip.find(params[:gossip_id]))
 
         if @comment.save
-            redirect_to gossip_path(id: Gossip.find(params[:gossip_id])
-        else 
-            render gossip_path(id: Gossip.find(params[:gossip_id])
+            flash[:success] = "Thanks for your comment !"
+        else
+            flash[:danger] = "Sorry, your comment was not validated... May be too short."
         end
-
-
+ 
+            redirect_to gossip_path(id: Gossip.find(params[:gossip_id])
     end
 
     def edit
