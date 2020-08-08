@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
-  get 'dynamic_pages/welcome'
+
+
   get 'index', to: 'static_pages#index'
   get 'team', to: 'static_pages#team'
   get 'contact', to: 'static_pages#contact'
