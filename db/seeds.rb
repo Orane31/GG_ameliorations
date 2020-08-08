@@ -62,7 +62,7 @@ puts "gossips attributed"
 
 10.times do
     private_message = PrivateMessage.create!(
-        content: Faker::Quote.yoda,
+        content: Faker::Lorem.paragraph(sentence_count: 3),
         recepient_id: User.all.sample.id,
         sender_id: User.all.sample.id
         )
@@ -70,11 +70,6 @@ end
 
 puts "5 new messages"
 
-15.times do
-    comment = Comment.create!(
-        content: Faker::Quote.yoda,
-        gossip_id: Gossip.all.sample.id,
-        user_id: User.all.sample.id
-    )
+
 
 end
